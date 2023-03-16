@@ -1,8 +1,9 @@
 # mimotion
 ![ 刷步数](https://github.com/huangshihai/mimotion/actions/workflows/run.yml/badge.svg)
-[![GitHub forks](https://img.shields.io/github/forks/huangshihai/mimotion?style=flat-square)](https://github.com/huangsh/mimotion/network)
-[![GitHub stars](https://img.shields.io/github/stars/huangshihai/mimotion?style=flat-square)](https://github.com/huangshihai/mimotion/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/huangshihai/mimotion?style=flat-square)](https://github.com/huangshihai/mimotion/issues)
+[![GitHub forks](https://img.shields.io/github/forks/huangshihai/mimotion)](https://github.com/huangsh/mimotion/network)
+[![GitHub stars](https://img.shields.io/github/stars/huangshihai/mimotion)](https://github.com/huangshihai/mimotion/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/huangshihai/mimotion)](https://github.com/huangshihai/mimotion/issues)
+[![last commit](https://img.shields.io/github/last-commit/tangwenlongNO1/mimotion)](https://github.com/tangwenlongNO1/mimotion/commits/master)
 
 # 小米运动自动刷步数（支持邮箱登录）
 
@@ -27,11 +28,12 @@
 
 多账户请用 **#** 分割 然后保存到变量 **USER** 和 **PWD**
 
-#### 例如
+#### 例如:
 
-**13800138000#13800138001** 变量 **USER**
+> **13800138000#13800138001** 变量 **USER**
 
-**abc123qwe#abcqwe2** 变量 **PWD**
+> **abc123qwe#abcqwe2** 变量 **PWD**
+
 
 ### 四、自定义启动时间
 
@@ -43,16 +45,16 @@
 
 ## 注意事项
 
-1. 每天运行六次，整由run.yml中的cron控制，分钟为随机值
+1. 每天运行六次，整由**run.yml**中的**cron**控制，分钟为随机值
 
 2. 多账户的数量和密码请一定要对上 不然无法使用!!!
 
-3. 启动时间得是UTC时间!
+3. 启动时间得是**UTC时间**!
 
-4. 如果支付宝没有更新步数,到小米运动->设置->账号->注销账号->清空数据,然后重新登录,重新绑定第三方
+4. 如果支付宝没有更新步数,到**小米运动->设置->账号->注销账号->清空数据**,然后重新登录,重新绑定第三方
 
 5. 小米运动不会更新步数，只有关联的会同步！！！！！
 
 6. 请各位在使用时Fork[主分支](https://github.com/huangshihai/mimotion/)，防止出现不必要的bug.
 
-7. 请注意，账号不是 [小米账号]，而是 [小米运动] 的账号。
+7. 请注意，账号不是 **[小米账号]**，而是 **[小米运动]** 的账号。
