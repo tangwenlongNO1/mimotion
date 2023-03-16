@@ -1,9 +1,10 @@
 # mimotion
-![ 刷步数](https://github.com/huangshihai/mimotion/actions/workflows/run.yml/badge.svg)
+![刷步数](https://github.com/tangwenlongNO1/mimotion/actions/workflows/run.yml/badge.svg)
 [![GitHub forks](https://img.shields.io/github/forks/huangshihai/mimotion)](https://github.com/huangsh/mimotion/network)
 [![GitHub stars](https://img.shields.io/github/stars/huangshihai/mimotion)](https://github.com/huangshihai/mimotion/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/huangshihai/mimotion)](https://github.com/huangshihai/mimotion/issues)
 [![last commit](https://img.shields.io/github/last-commit/tangwenlongNO1/mimotion)](https://github.com/tangwenlongNO1/mimotion/commits/master)
+![](https://img.shields.io/github/license/tangwenlongNO1/mimotion)
 
 # 小米运动自动刷步数（支持邮箱登录）
 
