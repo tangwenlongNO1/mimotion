@@ -15,7 +15,7 @@
 ### 一、Fork 此仓库
 
 ### 二、设置账号密码
-> 添加名为  **USER**、**PWD**、**OPEN_GET_WEATHER**、**AREA**的变量: Settings-->Secrets-->New secret  
+> 添加名为  **USER**、**PWD**、**OPEN_GET_WEATHER**、**AREA**、**PAT**的变量: Settings-->Secrets and variables-->Actions-->New repository secret  
 
 | Secrets | 格式                                                                                                                |
 | -------- |-------------------------------------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@
 | PWD | 小米运动登录密码,仅支持小米运动账号对应的密码                                                                                           |
 | OPEN_GET_WEATHER | 开启根据地区天气情况降低步数**False**关闭,**True**开启                                                                              |
 | AREA | 设置获取天气的地区（上面开启后必填）如：**北京**，当**OPEN_GET_WEATHER**为**False**时填写**NO**                                               |
-| PAT | 此处**PAT**需要申请，值为github token，教程详见：https://www.jianshu.com/p/bb82b3ad1d11 ,需要repo和workflow权限,此项必填，避免git push的权限错误。 |
+| PAT | 此处**PAT**需要申请，值为github token，教程详见：https://www.jianshu.com/p/bb82b3ad1d11 ,需要repo和workflow权限,此项必填，避免git push的权限错误 |
 
 ### 三、自定义启动时间多账户(用不上请忽略)
 
@@ -32,7 +32,7 @@
 #### 例如:
 
 > **13800138000#13800138001** 变量 **USER**
-
+> 
 > **abc123qwe#abcqwe2** 变量 **PWD**
 
 
@@ -46,7 +46,7 @@
 
 ## 注意事项
 
-1. 每天运行六次，整由**run.yml**中的**cron**控制，分钟为随机值
+1. 每天运行六次，分钟由**run.yml**中的**cron**控制，分钟为随机值
 
 2. 多账户的数量和密码请一定要对上 不然无法使用!!!
 
@@ -56,6 +56,6 @@
 
 5. 小米运动不会更新步数，只有关联的会同步！！！！！
 
-6. 请各位在使用时Fork[主分支](https://github.com/huangshihai/mimotion/)，防止出现不必要的bug.
+6. 请各位在使用时Fork[主分支](https://github.com/huangshihai/mimotion/)，防止出现不必要的bug
 
-7. 请注意，账号不是 **[小米账号]**，而是 **[小米运动]** 的账号。
+7. 请注意，账号不是 **[小米账号]**，而是 **[小米运动]** 的账号
