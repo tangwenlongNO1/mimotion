@@ -53,6 +53,7 @@ function sendTelegram( urls ) {
 ▎ Github Actions | 刷步数 · 每日推送 ${ now() }
 
 {{urls}}
+**已设置步数！**
 
 来自 [Github Action](https://github.com/tangwenlongNO1/mimotion/actions)`,
     config = {
