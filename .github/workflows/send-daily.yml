@@ -25,7 +25,6 @@ jobs:
         run: node index.js
 
         env:
-          SEND_TYPE: ${{ secrets.SEND_TYPE }}
           TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           
