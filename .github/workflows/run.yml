@@ -36,3 +36,4 @@ jobs:
           area='${{ secrets.AREA }}'
           bushu='${{ secrets.BUSHU }}'
           python3 main.py ${user} ${passwd} ${open_get_weather} ${area} ${bushu}
+          secrets.BUSHU = bushu
