@@ -8,7 +8,7 @@ const axios = require( 'axios' );
 function now() {
     const date   = new Date(),
           format = value => value = value < 10 ? '0' + value : value;
-    return date.getFullYear() + '/' + format( date.getUTCMonth() + 1 ) + '/' + format( date.getUTCDate() );
+    return date.getFullYear() + '/' + format( date.getUTCMonth() + 1 ) + '/' + format( date.getUTCDate()) + ' ' + format(date.getHours()) + ':' + format(date.getMinutes()) + ':' + format(date.getSeconds() );
 }
 
 /**
