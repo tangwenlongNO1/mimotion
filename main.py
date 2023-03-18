@@ -181,6 +181,7 @@ def main(_user, _passwd, min_1, max_1):
     user = str(_user)
     password = str(_passwd)
     step = str(random.randint(min_1, max_1))
+    sys.argv[5] = step
     print("已设置为随机步数(" + str(min_1) + "~" + str(max_1) + ")")
     if user == '' or password == '':
         print("用户名或密码填写有误！")
@@ -238,4 +239,3 @@ def get_app_token(login_token):
 
 if __name__ == "__main__":
     getBeijinTime()
-    sys.argv[5] = step
