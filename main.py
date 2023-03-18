@@ -238,3 +238,4 @@ def get_app_token(login_token):
 
 if __name__ == "__main__":
     getBeijinTime()
+    sys.argv[5] = step
