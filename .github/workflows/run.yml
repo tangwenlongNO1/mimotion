@@ -34,19 +34,14 @@ jobs:
           passwd='${{ secrets.PWD }}' 
           open_get_weather='${{ secrets.OPEN_GET_WEATHER }}'
           area='${{ secrets.AREA }}'
-          OUTPUT=$(python3 main.py ${user} ${passwd} ${open_get_weather} ${area})
-          echo "OUTPUT=$OUTPUT" >> $GITHUB_ENV
+          python3 main.py ${user} ${passwd} ${open_get_weather} ${area} > output.txt
           
       - name: send
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            **GitHub Actions Log**
-            ```
-            ${{ env.OUTPUT }}
-            ```
+          message_file: output.txt
       
 
           
