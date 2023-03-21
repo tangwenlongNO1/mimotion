@@ -47,7 +47,7 @@ jobs:
             ${{ env.OUTPUT }}
             ```
         env:
-          OUTPUT: ${{ steps.run-script.outputs.result }}
+          OUTPUT: ${{ output.log }}
       
 
           
