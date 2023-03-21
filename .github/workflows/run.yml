@@ -34,4 +34,20 @@ jobs:
           passwd='${{ secrets.PWD }}' 
           open_get_weather='${{ secrets.OPEN_GET_WEATHER }}'
           area='${{ secrets.AREA }}'
-          python3 main.py ${user} ${passwd} ${open_get_weather} ${area} 
+          python3 main.py ${user} ${passwd} ${open_get_weather} ${area} > output.log
+          
+      - name: send
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            *GitHub Actions Log*
+            ```
+            ${{ env.OUTPUT }}
+            ```
+        env:
+          OUTPUT: ${{ steps.run-script.outputs.result }}
+      
+
+          
