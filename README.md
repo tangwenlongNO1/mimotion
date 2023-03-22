@@ -23,9 +23,15 @@
 | PWD | 小米运动登录密码,仅支持小米运动账号对应的密码                                                                                           |
 | OPEN_GET_WEATHER | 开启根据地区天气情况降低步数**False**关闭,**True**开启                                                                              |
 | AREA | 设置获取天气的地区（上面开启后必填）如：**北京**，当**OPEN_GET_WEATHER**为**False**时填写**NO**                                               |
-| PAT | 此处**PAT**需要申请，值为github token，教程详见：https://www.jianshu.com/p/bb82b3ad1d11 ,需要repo和workflow权限,此项必填，避免git push的权限错误 |
+| PAT | 此处**PAT**需要申请，值为Github token，教程详见：https://www.jianshu.com/p/bb82b3ad1d11 ,需要repo和workflow权限,此项必填，避免git push的权限错误 |TELEGRAM_CHAT
 
-### 三、自定义启动时间多账户(用不上请忽略)
+### 三、推送Telegram(新增)
+
+> 添加名为 **TELEGRAM_TOKEN**、**TELEGRAM_CHAT**的变量
+> 
+> 第一个为Telegrambot的token，第二个为chatid(如何获取请自行查找教程)
+
+### 四、自定义启动时间多账户(用不上请忽略)
 
 多账户请用 **#** 分割 然后保存到变量 **USER** 和 **PWD**
 
@@ -36,12 +42,12 @@
 > **abc123qwe#abcqwe2** 变量 **PWD**
 
 
-### 四、自定义启动时间
+### 五、自定义启动时间
 
 编辑 **.github/workflows/run.yml**
 修改其中**cron**语句的判断时间为UTC时间，即**北京时间-8**，如北京时间8点为UTC时间0点，需要运行的时间-8就是UTC时间
 
-### 五、感谢列表
+### 六、感谢列表
 本项目基于https://github.com/xunichanghuan/mimotion 项目修改，特此感谢
 
 ## 注意事项
