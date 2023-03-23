@@ -21,7 +21,7 @@ jobs:
           if [[ $new_minute -ge $current_minute ]]; then
               new_minute=$((new_minute - 1))
           fi
-          sed -i -E "s/(- cron: ')[0-9]+( [^[:space:]]+ * * *')/1$new_minute2/g" .github/workflows/run.yml
+          sed -i -E "s/(- cron: ')[0-9]+( [^[:space:]]+ \* \* \*')/\1$(($new_minute))\2/g" .github/workflows/run.yml
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
