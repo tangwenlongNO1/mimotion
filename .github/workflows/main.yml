@@ -19,34 +19,11 @@ jobs:
         python-version: 3.8
 
     - name: Install requirements
-      run: pip install pyyaml requests
+      run: pip install requests
 
-    - name: Get current version
-      id: current_version
-      run: |
-        import yaml
-        import requests
-        
-        r = requests.get('https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest')
-        metadata = yaml.safe_load(r.content)
-        version = metadata[0]['tag_name']
-        version = version[1:]
-
-        print(f'::set-output name=current_version::{version}')
-        
-    - name: Set clash version
-      run: echo "CLASH_VERSION=${{ steps.current_version.outputs.current_version }}" >> $GITHUB_ENV
-          
-    - name: Publish to Telegram
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_CHAT }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          Clash for Windows 更新啦！
-          版本：${{ env.CLASH_VERSION }}
-  # 更新日志：${{ steps.github.outputs.changelog }}
+    - name: Run Python Script
+      run: python clash.py
+      env:
+        TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TG_CHAT_ID: ${{ secrets.TELEGRAM_CHAT }}
     
-
-        
- 
