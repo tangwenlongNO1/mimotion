@@ -45,7 +45,7 @@ jobs:
         message: |
           Clash for Windows 更新啦！
           版本：${{ env.CLASH_VERSION }}
-          # 更新日志：${{ steps.github.outputs.changelog }}
+  # 更新日志：${{ steps.github.outputs.changelog }}
     
 
         
