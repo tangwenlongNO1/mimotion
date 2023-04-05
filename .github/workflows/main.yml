@@ -1,8 +1,7 @@
 name: Clash-for-Windows Update Check
 
 on:
-  schedule:
-    - cron: '0 */2 * * *'
+
   workflow_dispatch:
 env:
   CLASH_URL: https://github.com/Fndroid/clash_for_windows_pkg/releases/latest
