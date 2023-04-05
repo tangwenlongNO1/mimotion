@@ -12,4 +12,7 @@ async function getUpdateInfo() {
   };
 }
 
-getUpdateInfo()
+getUpdateInfo().then(info => {
+  console.log(info);
+});
+
