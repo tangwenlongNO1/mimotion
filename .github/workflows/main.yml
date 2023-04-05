@@ -33,7 +33,6 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message_file: log.txt
-        document: |
-          ${{ env.CLASH_URL }}/download/Clash.for.Windows-${{ steps.checkout.outputs.version}}-win.7z
+
         
  
