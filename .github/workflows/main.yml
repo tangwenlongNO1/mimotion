@@ -18,7 +18,7 @@ jobs:
       id: clash
       uses: wei/curl@v1.0.0
       with:
-        url: 'https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest'
+        url: "https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest"
         args: '-sSL'
     
     - name: Get version and changelog
