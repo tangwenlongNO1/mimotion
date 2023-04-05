@@ -12,7 +12,7 @@ latest_changelog = data['body']
 telegram_bot_token = os.environ.get('TG_TOKEN')
 telegram_chat_id = os.environ.get('TG_CHAT_ID')
 telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-message_text = f"Clash For Windows 更新至 {latest_version}\n{latest_changelog}"
+message_text = f"🎉**Clash For Windows 更新至 {latest_version}**\n{latest_changelog}"
 params = {
     "chat_id":telegram_chat_id,
     "text":message_text
