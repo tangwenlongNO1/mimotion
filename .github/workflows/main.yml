@@ -1,0 +1,47 @@
+name: Clash-for-Windows Update Check
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+env:
+  CLASH_URL: https://github.com/Fndroid/clash_for_windows_pkg/releases/latest
+
+jobs:
+  update:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Clang
+      uses: actions/setup-node@v2.4.4
+      with:
+        node-version: '14.x'
+        
+    - name: Install dependencies
+      run: npm install
+        
+    - name: Check for updates
+      run: node node.js
+    
+    - name: Publish to Telegram
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_BOT }}
+        message: |
+          🎉 New Clash for Windows update available!
+          Version: ${{ steps.checkout.outputs.version }}
+          Changelog: ${{ steps.checkout.outputs.changelog }}
+
+          Download link: ${{ steps.checkout.outputs.url }}
+    
+    - name: Upload asset to release
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.checkout.outputs.upload_url }}
+        asset_path: './Clash for Windows.exe'
+        asset_name: 'Clash for Windows.exe'
+        asset_content_type: 'application/octet-stream'
