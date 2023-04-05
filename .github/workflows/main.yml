@@ -41,7 +41,7 @@ jobs:
     - name: Upload asset to release
       uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{ steps.checkout.outputs.upload_url }}
+        upload_url: ${{ steps.checkout.outputs.url }}
         asset_path: './Clash for Windows.exe'
         asset_name: 'Clash for Windows.exe'
         asset_content_type: 'application/octet-stream'
