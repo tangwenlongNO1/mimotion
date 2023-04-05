@@ -15,6 +15,8 @@ telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessag
 message_text = f"🎉**Clash For Windows 更新至 {latest_version}**\n{latest_changelog}"
 params = {
     "chat_id":telegram_chat_id,
-    "text":message_text
+    "text":message_text,
+    "parse_mode":MarkdownV2,
+    
 }
 response = requests.post(telegram_api_url, data=params)
