@@ -9,14 +9,14 @@ env:
 
 jobs:
   update:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     
     - name: Set up Clang
-      uses: actions/setup-node@v2.4.4
+      uses: actions/setup-node@v3
       with:
         node-version: '14.x'
         
