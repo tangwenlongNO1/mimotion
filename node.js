@@ -5,10 +5,10 @@ async function getUpdateInfo() {
   const response = await axios.get('https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest');
 
   console.log(
-    name: response.data.name,
-    version: response.data.tag_name,
-    url: response.data.assets[0].browser_download_url,
-    changelog: response.data.body,
+    'name:'+ response.data.name,
+    'version:'+ response.data.tag_name,
+    'url:'+ response.data.assets[0].browser_download_url,
+    'changelog:'+ response.data.body,
   );
 }
 
