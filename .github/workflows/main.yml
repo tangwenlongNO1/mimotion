@@ -25,6 +25,7 @@ jobs:
         
     - name: Check for updates
       run: node node.js
+      id: coco
     
     - name: Publish to Telegram
       uses: appleboy/telegram-action@master
@@ -33,10 +34,10 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           🎉 New Clash for Windows update available!
-          Version: ${{ steps.Check for updates.outputs.version }}
-          Changelog: ${{ steps.Check for updates.outputs.changelog }}
+          Version: ${{ steps.coco.outputs.version }}
+          Changelog: ${{ steps.coco.outputs.changelog }}
 
-          Download link: ${{ steps.Check for updates.outputs.url }}
+          Download link: ${{ steps.coco.url }}
         document: |
           ${{ env.CLASH_URL }}/download/Clash.for.Windows-${{ steps.checkout.outputs.version}}-win.7z
         
