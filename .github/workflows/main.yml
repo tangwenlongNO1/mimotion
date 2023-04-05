@@ -24,7 +24,7 @@ jobs:
       run: npm install
         
     - name: Check for updates
-      run: node node.js
+      run: node node.js > log.txt
       id: coco
     
     - name: Publish to Telegram
@@ -32,12 +32,7 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_CHAT }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          🎉 New Clash for Windows update available!
-          Version: ${{ steps.coco.outputs.version }}
-          Changelog: ${{ steps.coco.outputs.changelog }}
-
-          Download link: ${{ steps.coco.url }}
+        message_file: log.txt
         document: |
           ${{ env.CLASH_URL }}/download/Clash.for.Windows-${{ steps.checkout.outputs.version}}-win.7z
         
