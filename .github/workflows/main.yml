@@ -37,11 +37,7 @@ jobs:
           Changelog: ${{ steps.checkout.outputs.changelog }}
 
           Download link: ${{ steps.checkout.outputs.url }}
-    
-    - name: Upload asset to release
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.checkout.outputs.url }}
-        asset_path: './Clash for Windows.exe'
-        asset_name: 'Clash for Windows.exe'
-        asset_content_type: 'application/octet-stream'
+        document: |
+          ${{ env.CLASH_URL }}/download/Clash.for.Windows-${{ steps.checkout.outputs.version}}-win.7z
+        
+ 
