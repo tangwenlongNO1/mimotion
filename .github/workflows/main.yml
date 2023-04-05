@@ -14,24 +14,32 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Set up Clang
-      uses: actions/setup-node@v3
+    - name: Get latest Clash for Windows release
+      id: clash
+      uses: wei/curl@v1.0.0
       with:
-        node-version: '14.x'
-        
-    - name: Install dependencies
-      run: npm install
-        
-    - name: Check for updates
-      run: node node.js > log.txt
-      id: coco
+        url: 'https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest'
+        args: '-sSL'
     
+    - name: Get version and changelog
+      id: github
+      run: |
+        version=$(echo ${{ steps.clash.outputs.data }} | jq -r '.tag_name')
+        changelog=$(echo ${{ steps.clash.outputs.data }} | jq -r '.body' | sed 's/\n/ /g')
+        echo "Version: $version"
+        echo "Changelog: $changelog"
+        echo "::set-output name=version::$version"
+        echo "::set-output name=changelog::$changelog"
+          
     - name: Publish to Telegram
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_CHAT }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message_file: log.txt
+        message: |
+          Clash for Windows 更新啦！
+          版本：${{ steps.github.outputs.version }}
+          更新日志：${{ steps.github.outputs.changelog }}
 
         
  
