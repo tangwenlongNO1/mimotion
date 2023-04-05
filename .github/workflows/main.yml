@@ -26,11 +26,8 @@ jobs:
       run: |
         import yaml
         import requests
-        header = {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'zh-CN,zh;q=0.9', 'Connection': 'keep-alive',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.54 Safari/537.36'}
-        r = requests.get(https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest, headers=header)
+        
+        r = requests.get('https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest')
         metadata = yaml.safe_load(r.content)
         version = metadata[0]['tag_name']
         version = version[1:]
