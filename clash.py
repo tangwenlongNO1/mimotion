@@ -20,3 +20,4 @@ params = {
     
 }
 response = requests.post(telegram_api_url, data=params)
+print(response.status_code)
