@@ -16,10 +16,9 @@ jobs:
     
     - name: Get latest Clash for Windows release
       id: clash
-      uses: wei/curl@v1.0.0
+      uses: wei/curl@master
       with:
-        url: "https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest"
-        args: '-sSL'
+        args: https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest
     
     - name: Get version and changelog
       id: github
