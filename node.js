@@ -12,6 +12,4 @@ async function getUpdateInfo() {
   };
 }
 
-getUpdateInfo().then(info => {
-  console.log(info);
-});
+getUpdateInfo()
