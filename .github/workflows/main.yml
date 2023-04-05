@@ -33,10 +33,10 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           🎉 New Clash for Windows update available!
-          Version: ${{ steps.checkout.outputs.version }}
-          Changelog: ${{ steps.checkout.outputs.changelog }}
+          Version: ${{ steps.Check for updates.outputs.version }}
+          Changelog: ${{ steps.Check for updates.outputs.changelog }}
 
-          Download link: ${{ steps.checkout.outputs.url }}
+          Download link: ${{ steps.Check for updates.outputs.url }}
         document: |
           ${{ env.CLASH_URL }}/download/Clash.for.Windows-${{ steps.checkout.outputs.version}}-win.7z
         
