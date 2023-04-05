@@ -3,6 +3,7 @@ import requests
 
 # 获取当前最新版本的 Clash For Windows 下载链接和更新日志
 response = requests.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest")
+print(response.status_code)
 data = response.json()
 latest_version = data['tag_name']
 latest_download_url = data['assets'][0]['browser_download_url']
