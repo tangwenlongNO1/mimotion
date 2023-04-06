@@ -24,7 +24,9 @@ jobs:
       run: pip install requests 
 
     - name: Run Python Script
-      run: python clash.py
+      run: |
+        python clash.py
+        echo $GITHUB_ENV
 env:
   TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   TG_CHAT_ID: ${{ secrets.CHANNEL_ID }}
