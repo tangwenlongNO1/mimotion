@@ -17,7 +17,8 @@ message_text = f"🎉*Clash For Windows 更新至 {latest_version}*\n{latest_cha
 params = {
     "chat_id":telegram_chat_id,
     "text":message_text,
-    "parse_mode":'Markdown'
+    "parse_mode":'Markdown',
+    "disable_web_page_preview":False
     
 }
 response = requests.post(telegram_api_url, data=params)
