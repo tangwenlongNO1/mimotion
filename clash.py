@@ -12,14 +12,18 @@ latest_changelog = data['body']
 # 推送更新通知到 Telegram
 telegram_bot_token = os.environ.get('TG_TOKEN')
 telegram_chat_id = os.environ.get('TG_CHAT_ID')
+current_version = os.environ.get('version')
 telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-message_text = f"🎉*Clash For Windows 更新至 {latest_version}*\n{latest_changelog}\n[下载链接](https://github.com/Fndroid/clash_for_windows_pkg/releases/latest)"
-params = {
-    "chat_id":telegram_chat_id,
-    "text":message_text,
-    "parse_mode":'Markdown',
-    "disable_web_page_preview":True
-    
-}
-response = requests.post(telegram_api_url, data=params)
-print(response.status_code)
+if latest_version != current_version:
+
+    message_text = f"🎉*Clash For Windows 更新至 {latest_version}*\n{latest_changelog}\n[下载链接](https://github.com/Fndroid/clash_for_windows_pkg/releases/latest)"
+    params = {
+        "chat_id":telegram_chat_id,
+        "text":message_text,
+        "parse_mode":'Markdown',
+        "disable_web_page_preview":True
+
+    }
+    response = requests.post(telegram_api_url, data=params)
+    print(response.status_code)
+    os.environ['version'] = latest_version
