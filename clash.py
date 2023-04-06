@@ -18,7 +18,7 @@ params = {
     "chat_id":telegram_chat_id,
     "text":message_text,
     "parse_mode":'Markdown',
-    "disable_web_page_preview":False
+    "disable_web_page_preview":True
     
 }
 response = requests.post(telegram_api_url, data=params)
