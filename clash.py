@@ -29,12 +29,12 @@ if latest_version != current_version:
     print(response.status_code)
     os.environ['version'] = latest_version
 # Read the YAML file
-with open('main.yml', 'r') as file:
+with open('.github/workflows/main.yml', 'r') as file:
   config = yaml.safe_load(file)
 
 # Modify the version in the config dictionary
 config['version'] = '0.20.20'
 
 # Write the updated config back to the file
-with open('main.yml', 'w') as file:
+with open('.github/workflows/main.yml', 'w') as file:
   yaml.dump(config, file)
