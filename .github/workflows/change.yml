@@ -16,7 +16,7 @@ jobs:
       - name: change variables
         run: |
           
-          sed -i -E "s/(version: ")[0-9]+( [^[:space:]]+ \* \* \*")/\1$(($env.version))\2/g" .github/workflows/main.yml
+          sed -i "s/version: \"[0-9]*\.[0-9]*\.[0-9]*\"/version: \"$version\"/" .github/workflows/main.yml
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
