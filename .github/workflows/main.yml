@@ -1,6 +1,8 @@
 name: Clash-for-Windows Update Check
 
 on:
+  schedule: 
+    - cron: '0 2/2 * * *'
 
   workflow_dispatch:
 
