@@ -1,5 +1,6 @@
 import os
 import requests
+import yaml
 
 # 获取当前最新版本的 Clash For Windows 下载链接和更新日志
 response = requests.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest")
@@ -27,3 +28,13 @@ if latest_version != current_version:
     response = requests.post(telegram_api_url, data=params)
     print(response.status_code)
     os.environ['version'] = latest_version
+# Read the YAML file
+with open('main.yml', 'r') as file:
+  config = yaml.safe_load(file)
+
+# Modify the version in the config dictionary
+config['version'] = '0.20.20'
+
+# Write the updated config back to the file
+with open('main.yml', 'w') as file:
+  yaml.dump(config, file)
