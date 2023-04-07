@@ -1,47 +1,50 @@
-name: Clash-for-Windows Update Check
-
-on:
-  schedule: 
-    - cron: '0 2/2 * * *'
-
-  workflow_dispatch:
 
 
-jobs:
-  update:
-    runs-on: windows-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    
-    - name: Set python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
 
-    - name: Install requirements
-      run: pip install requests 
 
-    - name: Run Python Script
-      run: 
-        python clash.py
-        
-    - uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT }}  
-        
-    - name: change
-      run: |
-          
-          sed -i "s/version: \"[0-9]*\.[0-9]*\.[0-9]*\"/version: \"$version\"/" .github/workflows/main.yml
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "change var"
-          git push origin master
-env:
-  TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-  TG_CHAT_ID: ${{ secrets.CHANNEL_ID }}
-  version: "0.20.19"
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+200
+200
+
+
+
+
+
+
+
+
+
+
+
+
+[master d5da08d] change var
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .github/workflows/sed522NX1
+
+
+
+
+
+
