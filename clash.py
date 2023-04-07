@@ -35,6 +35,8 @@ if latest_version != current_version:
     response = requests.post(telegram_api_url, data=params)
     print(response.status_code)
     with open('.env', 'w') as f:
-        contents = f.write(f"version={latest_version}")
+        f.write(f"version={latest_version}")
+    with open('.env', 'r') as f:
+        contents = f.read()
     repo.create_file(".env", "update .env", contents, branch="master")
 
