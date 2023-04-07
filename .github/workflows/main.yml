@@ -26,18 +26,7 @@ jobs:
     - name: Run Python Script
       run: 
         python clash.py
-        
-    - uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11,需要repo和workflow权限
-    - name: change variables
-      run: |
-          
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "change var"
-          git push origin master
 env:
   TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   TG_CHAT_ID: ${{ secrets.CHANNEL_ID }}
+  token: ${{ secrets.PAT }}
