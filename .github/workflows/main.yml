@@ -24,11 +24,20 @@ jobs:
       run: pip install requests 
 
     - name: Run Python Script
-      run: |
+      run: 
         python clash.py
-        echo $GITHUB_ENV
+        
+    - name: change
+      run: |
+          
+          sed -i "s/version: \"[0-9]*\.[0-9]*\.[0-9]*\"/version: \"$version\"/" .github/workflows/main.yml
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "change var"
+          git push origin master
 env:
   TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   TG_CHAT_ID: ${{ secrets.CHANNEL_ID }}
-#   version: "0.20.19"
+  version: "0.20.19"
     
