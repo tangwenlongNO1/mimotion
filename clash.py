@@ -1,5 +1,7 @@
 import os
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
 # 获取当前最新版本的 Clash For Windows 下载链接和更新日志
 response = requests.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest")
@@ -12,7 +14,7 @@ latest_changelog = data['body']
 # 推送更新通知到 Telegram
 telegram_bot_token = os.environ.get('TG_TOKEN')
 telegram_chat_id = os.environ.get('TG_CHAT_ID')
-current_version = os.environ.get('version')
+current_version = os.getenv('version')
 telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 if latest_version != current_version:
 
@@ -26,5 +28,5 @@ if latest_version != current_version:
     }
     response = requests.post(telegram_api_url, data=params)
     print(response.status_code)
-    os.environ['version'] = latest_version
+    set_key('.env', 'version', latest_version)
 
