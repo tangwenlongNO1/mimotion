@@ -1,6 +1,6 @@
 import os
 import requests
-from dotenv import load_dotenv
+from dotenv import load_dotenv,set_key
 load_dotenv()
 
 # 获取当前最新版本的 Clash For Windows 下载链接和更新日志
