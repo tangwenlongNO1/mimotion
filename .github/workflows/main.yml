@@ -27,6 +27,10 @@ jobs:
       run: 
         python clash.py
         
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT }}  
+        
     - name: change
       run: |
           
@@ -39,5 +43,5 @@ jobs:
 env:
   TG_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
   TG_CHAT_ID: ${{ secrets.CHANNEL_ID }}
-  version: ""
+  version: "0.20.19"
     
