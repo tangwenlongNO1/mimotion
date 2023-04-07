@@ -1,7 +1,13 @@
 import os
 import requests
 from dotenv import load_dotenv,set_key
+from github import Github
 load_dotenv()
+
+g = Github(os.environ.get("token"))
+rep_name = "mimotion"
+username = "tangwenlongNO1"
+repo = g.get_user(username).get_repo(repo_name)
 
 # 获取当前最新版本的 Clash For Windows 下载链接和更新日志
 response = requests.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest")
@@ -29,5 +35,6 @@ if latest_version != current_version:
     response = requests.post(telegram_api_url, data=params)
     print(response.status_code)
     with open('.env', 'w') as f:
-        f.write(f"version={latest_version}")
+        contents = f.write(f"version={latest_version}")
+    repo.create_file(".env", "update .env", contents, branch="master")
 
