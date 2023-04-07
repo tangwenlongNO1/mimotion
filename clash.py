@@ -16,6 +16,9 @@ data = response.json()
 latest_version = data['tag_name']
 latest_download_url = data['assets'][0]['browser_download_url']
 latest_changelog = data['body']
+re = requests.get("https://api.github.com/repos/tangwenlongNO1/mimotion/contents/.env")
+dt = re.json()
+sha = dt['sha']
 
 # 推送更新通知到 Telegram
 telegram_bot_token = os.environ.get('TG_TOKEN')
@@ -38,5 +41,5 @@ if latest_version != current_version:
         f.write(f"version={latest_version}")
     with open('.env', 'r') as f:
         contents = f.read()
-    repo.update_file(".env", "update .env", contents, "2dce754db4c43e95b304111764a2e15462e2c481", branch="master")
+    repo.update_file(".env", "update .env", contents, sha, branch="master")
 
