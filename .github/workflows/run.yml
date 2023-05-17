@@ -39,7 +39,7 @@ jobs:
       - name: send to Telegram
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_CHAT }}
+          to: ${{ secrets.CHAT }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message_file: output.txt
       
